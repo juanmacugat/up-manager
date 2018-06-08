@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    ports:
+     - 3306:3306
+    volumes:
+      - ./src/main/resources/scripts:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+  adminer:
+      image: adminer
+      restart: always
+      ports:
+       - 8081:8080
