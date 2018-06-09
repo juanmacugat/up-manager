@@ -1,9 +1,9 @@
-package controller;
+package presenter;
 
 import model.User;
 import repository.UserRepository;
 
-public class UserController {
+public class UserPresenter {
 
     private UserRepository userRepository = UserRepository.getInstance();
 

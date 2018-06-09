@@ -1,4 +1,4 @@
-package controller;
+package presenter;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import javax.swing.*;
 @Getter
 @Setter
 @AllArgsConstructor
-public class StudentController {
+public class StudentPresenter {
 
     private StudentView studentView;
 
