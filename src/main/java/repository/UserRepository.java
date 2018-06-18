@@ -9,4 +9,9 @@ public class UserRepository implements RelationalRepository<User, String> {
     public static UserRepository getInstance(){
         return instance;
     }
+
+
+    public User findByUsername(String username) {
+        return this.findByField("username", username);
+    }
 }
