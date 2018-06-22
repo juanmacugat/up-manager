@@ -1,6 +1,6 @@
 package repository;
 
-import model.User;
+import domain.User;
 
 public class UserRepository implements RelationalRepository<User, String> {
 

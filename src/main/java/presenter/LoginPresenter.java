@@ -5,10 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import domain.Login;
+import domain.User;
 import model.DashboardModel;
-import model.Login;
-import model.User;
 import view.DashboardView;
+import view.ErrorView;
 import view.LoginView;
 
 import javax.swing.*;
@@ -42,12 +43,11 @@ public class LoginPresenter {
     }
 
     private void fail() {
+        view.getFrame().setVisible(false);
+        SwingUtilities.invokeLater(() ->{
+            ErrorView view = new ErrorView();
+
+        });
     }
 
-    private void loginUnsuccessful() {
-
-    }
-
-    private void enterDashboard() {
-    }
 }

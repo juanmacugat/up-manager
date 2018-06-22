@@ -1,7 +1,7 @@
 package repository;
 
-import model.Course;
-import model.Teacher;
+import domain.Course;
+import domain.Teacher;
 import org.junit.After;
 import org.junit.Test;
 

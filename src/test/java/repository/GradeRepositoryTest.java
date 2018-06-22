@@ -1,9 +1,9 @@
 package repository;
 
-import model.Course;
-import model.Grade;
-import model.Student;
-import model.Teacher;
+import domain.Course;
+import domain.Grade;
+import domain.Student;
+import domain.Teacher;
 import org.junit.After;
 import org.junit.Test;
 

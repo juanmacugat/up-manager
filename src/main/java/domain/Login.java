@@ -1,4 +1,4 @@
-package model;
+package domain;
 
 import exceptions.UserNotFoundException;
 import lombok.AllArgsConstructor;

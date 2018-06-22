@@ -2,7 +2,7 @@ package view;
 
 import lombok.Getter;
 import lombok.Setter;
-import model.Student;
+import domain.Student;
 
 import javax.swing.*;
 import java.awt.*;

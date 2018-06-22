@@ -1,6 +1,6 @@
 package service;
 
-import model.Course;
+import domain.Course;
 
 import java.util.List;
 

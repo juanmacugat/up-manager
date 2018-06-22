@@ -21,7 +21,6 @@ public class DashboardView {
     private JButton cancelButton;
     private JButton editButton;
     private JTable courseTables;
-
     private DefaultTableModel tableModel = new DefaultTableModel(5,5);
 
     public DashboardView(){
@@ -52,7 +51,8 @@ public class DashboardView {
 
         frame.getContentPane().setBackground(Color.white);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(new GridLayout(0,2,2,2));
+        frame.getContentPane().setLayout(new GridLayout(0,1,3,3));
+        frame.getContentPane().add(courseTables);
         frame.getContentPane().add(newButton);
         frame.getContentPane().add(cancelButton);
 

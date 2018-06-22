@@ -1,20 +1,18 @@
-package model;
+package domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class Course {
+public class Teacher {
 
     private String id = UUID.randomUUID().toString();
     private String name;
-    private Teacher teacher;
+    private String surname;
 
 }

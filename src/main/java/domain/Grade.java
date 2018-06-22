@@ -1,4 +1,4 @@
-package model;
+package domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 package repository;
 
-import model.Student;
+import domain.Student;
 import org.junit.After;
 import org.junit.Test;
 

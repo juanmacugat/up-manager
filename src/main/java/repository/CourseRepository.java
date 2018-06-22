@@ -1,6 +1,6 @@
 package repository;
 
-import model.Course;
+import domain.Course;
 
 public class CourseRepository implements RelationalRepository<Course, String> {
 

@@ -3,7 +3,7 @@ package presenter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import model.Student;
+import domain.Student;
 import repository.StudentRepository;
 import view.StudentView;
 

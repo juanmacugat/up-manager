@@ -1,6 +1,6 @@
 package main;
 
-import model.Login;
+import domain.Login;
 import presenter.LoginPresenter;
 import view.LoginView;
 
