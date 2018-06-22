@@ -15,7 +15,6 @@ public class Course {
 
     private String id = UUID.randomUUID().toString();
     private String name;
-    private List<Student> students = new ArrayList<Student>();
     private Teacher teacher;
 
 }

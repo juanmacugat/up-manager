@@ -6,6 +6,8 @@ import lombok.Setter;
 import presenter.DashboardPresenter;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
 
 @Getter
@@ -15,16 +17,27 @@ public class DashboardView {
 
     private DashboardPresenter presenter;
     private JFrame frame;
-    private JButton saveButton;
+    private JButton newButton;
     private JButton cancelButton;
+    private JButton editButton;
+    private JTable courseTables;
+
+    private DefaultTableModel tableModel = new DefaultTableModel(5,5);
 
     public DashboardView(){
         initialize();
     }
 
     private void initialize() {
-        saveButton = new JButton("SAVE");
-        saveButton.addActionListener(event->{
+
+        courseTables = new JTable(tableModel);
+
+        editButton = new JButton("EDIT");
+        editButton.addActionListener(event -> {
+
+        });
+        newButton = new JButton("ADD");
+        newButton.addActionListener(event->{
 
         });
 
@@ -40,7 +53,7 @@ public class DashboardView {
         frame.getContentPane().setBackground(Color.white);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(0,2,2,2));
-        frame.getContentPane().add(saveButton);
+        frame.getContentPane().add(newButton);
         frame.getContentPane().add(cancelButton);
 
         frame.pack();

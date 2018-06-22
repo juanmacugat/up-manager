@@ -16,7 +16,7 @@ public class LoginView {
     private JLabel insertUsername;
     private JLabel insertPassword;
     private JTextField username;
-    private JTextField password;
+    private JPasswordField password;
     private JButton loginButton;
     private JButton cancelButton;
 
@@ -40,8 +40,7 @@ public class LoginView {
         insertPassword = new JLabel("Password: ");
 
         username = new JTextField();
-        password = new JTextField();
-
+        password = new JPasswordField();
 
         frame =  new JFrame("UP MANAGER");
         frame.setLocationRelativeTo(null);

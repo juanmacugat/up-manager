@@ -23,6 +23,6 @@ public class Login {
             if(BCrypt.checkpw(password, user.getPassword()))
                 return user;
 
-        throw new UserNotFoundException();
+        throw new UserNotFoundException("We couldnt found username: " + username);
     }
 }

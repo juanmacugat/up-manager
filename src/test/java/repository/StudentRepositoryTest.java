@@ -24,14 +24,14 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setStudentId("STUDENT#1");
+        student.setLegajo("STUDENT#1");
 
         Student studentSaved = StudentRepository.getInstance().save(student);
 
         assertEquals(student.getId(), studentSaved.getId());
         assertEquals(student.getName(), studentSaved.getName());
         assertEquals(student.getSurname(), studentSaved.getSurname());
-        assertEquals(student.getStudentId(), studentSaved.getStudentId());
+        assertEquals(student.getLegajo(), studentSaved.getLegajo());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setStudentId("STUDENT#1");
+        student.setLegajo("STUDENT#1");
 
         StudentRepository.getInstance().save(student);
 
@@ -49,7 +49,7 @@ public class StudentRepositoryTest {
         student2.setId(UUID.randomUUID().toString());
         student2.setName("NOMBRE");
         student2.setSurname("APELLIDO");
-        student2.setStudentId("STUDENT#1");
+        student2.setLegajo("STUDENT#1");
 
         StudentRepository.getInstance().save(student2);
 
@@ -64,7 +64,7 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setStudentId("STUDENT#1");
+        student.setLegajo("STUDENT#1");
 
         Student studentSaved = StudentRepository.getInstance().save(student);
 
@@ -77,7 +77,7 @@ public class StudentRepositoryTest {
         assertEquals(studentUpdated.getId(), studentSaved.getId());
         assertEquals(studentUpdated.getName(), studentSaved.getName());
         assertEquals(studentUpdated.getSurname(), studentSaved.getSurname());
-        assertEquals(studentUpdated.getStudentId(), studentSaved.getStudentId());
+        assertEquals(studentUpdated.getLegajo(), studentSaved.getLegajo());
 
     }
 
@@ -88,7 +88,7 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setStudentId("STUDENT#1");
+        student.setLegajo("STUDENT#1");
 
         StudentRepository.getInstance().save(student);
 
@@ -96,7 +96,7 @@ public class StudentRepositoryTest {
         assertEquals(student.getId(), studentSaved.getId());
         assertEquals(student.getName(), studentSaved.getName());
         assertEquals(student.getSurname(), studentSaved.getSurname());
-        assertEquals(student.getStudentId(), studentSaved.getStudentId());
+        assertEquals(student.getLegajo(), studentSaved.getLegajo());
 
     }
 
@@ -106,7 +106,7 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setStudentId("STUDENT#1");
+        student.setLegajo("STUDENT#1");
 
         StudentRepository.getInstance().save(student);
 

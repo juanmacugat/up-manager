@@ -14,11 +14,11 @@ public class Student {
     private String id = UUID.randomUUID().toString();
     private String name;
     private String surname;
-    private String studentId;
+    private String legajo;
 
     public Student(String name, String surname, String studentId){
         this.name = name;
         this.surname = surname;
-        this.studentId = studentId;
+        this.legajo = studentId;
     }
 }
