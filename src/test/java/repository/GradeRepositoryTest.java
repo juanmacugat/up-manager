@@ -49,4 +49,24 @@ public class GradeRepositoryTest {
         assertEquals(grade.getGrade(), gradeSaved.getGrade());
     }
 
+    @Test
+    public void testGetAllGrades(){
+
+    }
+
+    @Test
+    public void testGetGradeById(){
+
+    }
+
+    @Test
+    public void testDeleteGrade(){
+
+    }
+
+    @Test
+    public void testUpdateGrade(){
+
+    }
+
 }
