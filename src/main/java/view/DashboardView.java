@@ -1,11 +1,15 @@
 package view;
 
+import domain.Course;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import model.CourseTableModel;
+import model.GenericTableModel;
 import presenter.DashboardPresenter;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.awt.*;
@@ -21,7 +25,7 @@ public class DashboardView {
     private JButton cancelButton;
     private JButton editButton;
     private JTable courseTables;
-    private DefaultTableModel tableModel = new DefaultTableModel(5,5);
+    private AbstractTableModel courseTableModel = new CourseTableModel();
 
     public DashboardView(){
         initialize();
@@ -29,7 +33,7 @@ public class DashboardView {
 
     private void initialize() {
 
-        courseTables = new JTable(tableModel);
+        courseTables = new JTable(courseTableModel);
 
         editButton = new JButton("EDIT");
         editButton.addActionListener(event -> {

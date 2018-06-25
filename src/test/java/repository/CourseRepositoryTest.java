@@ -92,27 +92,6 @@ public class CourseRepositoryTest {
 
     }
 
-//    @Test
-//    public void testUpdateCourse(){
-//
-//        Teacher teacher1 = new Teacher();
-//        teacher1.setId(UUID.randomUUID().toString());
-//        teacher1.setName("NOMBRE PROFESOR");
-//        teacher1.setSurname("APELLIDO PROFESOR");
-//
-//        Course course1 = new Course();
-//        course1.setId(UUID.randomUUID().toString());
-//        course1.setName("LABORATORIO #1");
-//        course1.setTeacher(teacher1);
-//
-//        CourseRepository.getInstance().save(course1);
-//
-//        course1.setName("NUEVO NOMBRE");
-//
-//        CourseRepository.getInstance().update(course1);
-//
-//    }
-
     @Test
     public void testDeleteCourseById(){
 

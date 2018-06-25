@@ -47,6 +47,7 @@ public class LoginView {
 
         frame.getContentPane().setBackground(Color.white);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300,300);
         frame.getContentPane().setLayout(new GridLayout(0,2,2,2));
         frame.getContentPane().add(insertUsername);
         frame.getContentPane().add(username);
@@ -57,13 +58,5 @@ public class LoginView {
 
         frame.pack();
         frame.setVisible(true);
-    }
-
-    public void update(String result) {
-        System.out.println(result);
-    }
-
-    public void hideInputFields() {
-
     }
 }
