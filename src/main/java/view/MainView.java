@@ -1,5 +1,8 @@
 package view;
 
+import presenter.CoursesPresenter;
+import presenter.StudentsPresenter;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,7 +11,6 @@ import java.awt.event.KeyEvent;
 
 public class MainView {
 
-    //Where the GUI is created:
     JMenuBar menuBar;
     JMenu options;
     JMenuItem itemStudents, itemCourses, itemTeachers, itemExit;
@@ -33,7 +35,9 @@ public class MainView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(() ->{
+                    StudentsPresenter presenter = new StudentsPresenter();
                     StudentsView view  = new StudentsView("Students");
+                    presenter.setView(view);
                 });
             }
         });
@@ -45,6 +49,14 @@ public class MainView {
                 KeyEvent.VK_T);
         itemCourses.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_1, ActionEvent.ALT_MASK));
+        itemCourses.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CoursesPresenter presenter = new CoursesPresenter();
+                CoursesView view = new CoursesView(presenter);
+                presenter.setView(view);
+            }
+        });
         options.add(itemCourses);
 
         options.addSeparator();

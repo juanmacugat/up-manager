@@ -3,20 +3,10 @@ package view;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.jdesktop.beansbinding.BeanProperty;
-import org.jdesktop.swingbinding.JTableBinding;
-import org.jdesktop.swingbinding.SwingBindings;
 import presenter.CoursesPresenter;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
 import java.awt.*;
-import java.util.Arrays;
-
-import static org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ;
 
 @Getter
 @Setter
@@ -32,7 +22,8 @@ public class CoursesView{
     private JButton editButton;
     private JTable courseTable;
 
-    public CoursesView(){
+    public CoursesView(CoursesPresenter presenter){
+        this.presenter = presenter;
         initialize();
     }
 
