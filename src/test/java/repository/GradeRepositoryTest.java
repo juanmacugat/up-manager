@@ -25,7 +25,7 @@ public class GradeRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setLegajo("STUDENT#1");
+        student.setEmail("student@up.com");
 
         Teacher teacher = new Teacher();
         teacher.setId(UUID.randomUUID().toString());

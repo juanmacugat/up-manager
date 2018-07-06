@@ -15,13 +15,15 @@ public class Student {
     private String id = UUID.randomUUID().toString();
     private String name;
     private String surname;
-    private String legajo;
+    private String email;
     private Date birthday;
+    private Date creationDate;
 
-
-    public Student(String name, String surname, String studentId){
+    public Student(String name, String surname, String email, Date birthday, Date creationDate){
         this.name = name;
         this.surname = surname;
-        this.legajo = studentId;
+        this.email = email;
+        this.birthday = birthday;
+        this.creationDate = creationDate;
     }
 }

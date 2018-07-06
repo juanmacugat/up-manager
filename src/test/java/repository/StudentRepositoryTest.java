@@ -25,14 +25,14 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setLegajo("STUDENT#1");
+        student.setEmail("student@up.com");
 
         Student studentSaved = StudentRepository.getInstance().save(student);
 
         assertEquals(student.getId(), studentSaved.getId());
         assertEquals(student.getName(), studentSaved.getName());
         assertEquals(student.getSurname(), studentSaved.getSurname());
-        assertEquals(student.getLegajo(), studentSaved.getLegajo());
+        assertEquals(student.getEmail(), studentSaved.getEmail());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setLegajo("STUDENT#1");
+        student.setEmail("student@up.com");
 
         StudentRepository.getInstance().save(student);
 
@@ -50,7 +50,7 @@ public class StudentRepositoryTest {
         student2.setId(UUID.randomUUID().toString());
         student2.setName("NOMBRE");
         student2.setSurname("APELLIDO");
-        student2.setLegajo("STUDENT#1");
+        student2.setEmail("student@up.com");
 
         StudentRepository.getInstance().save(student2);
 
@@ -65,7 +65,7 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setLegajo("STUDENT#1");
+        student.setEmail("student@up.com");
 
         Student studentSaved = StudentRepository.getInstance().save(student);
 
@@ -78,7 +78,7 @@ public class StudentRepositoryTest {
         assertEquals(studentUpdated.getId(), studentSaved.getId());
         assertEquals(studentUpdated.getName(), studentSaved.getName());
         assertEquals(studentUpdated.getSurname(), studentSaved.getSurname());
-        assertEquals(studentUpdated.getLegajo(), studentSaved.getLegajo());
+        assertEquals(studentUpdated.getEmail(), studentSaved.getEmail());
 
     }
 
@@ -89,7 +89,7 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setLegajo("STUDENT#1");
+        student.setEmail("student@up.com");
 
         StudentRepository.getInstance().save(student);
 
@@ -97,7 +97,7 @@ public class StudentRepositoryTest {
         assertEquals(student.getId(), studentSaved.getId());
         assertEquals(student.getName(), studentSaved.getName());
         assertEquals(student.getSurname(), studentSaved.getSurname());
-        assertEquals(student.getLegajo(), studentSaved.getLegajo());
+        assertEquals(student.getEmail(), studentSaved.getEmail());
 
     }
 
@@ -107,7 +107,7 @@ public class StudentRepositoryTest {
         student.setId(UUID.randomUUID().toString());
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
-        student.setLegajo("STUDENT#1");
+        student.setEmail("student@up.com");
 
         StudentRepository.getInstance().save(student);
 

@@ -4,13 +4,20 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import domain.Student;
+import org.jdesktop.beansbinding.BeanProperty;
+import org.jdesktop.swingbinding.JTableBinding;
+import org.jdesktop.swingbinding.SwingBindings;
 import repository.StudentRepository;
 import service.StudentService;
 import service.StudentServiceImpl;
 import view.StudentsView;
 
 import javax.swing.*;
+import java.util.Date;
 import java.util.List;
+
+import static org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ;
+import static org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE;
 
 @Getter
 @Setter
@@ -18,6 +25,25 @@ public class StudentsPresenter {
 
     private StudentsView view;
     private StudentService studentService = new StudentServiceImpl();
+
+    public StudentsPresenter(StudentsView view){
+        JTableBinding tb = SwingBindings.createJTableBinding(READ_WRITE, findAllStudents(), view.getStudentsTable());
+
+        BeanProperty id = BeanProperty.create("id");
+        BeanProperty name = BeanProperty.create("name");
+        BeanProperty surname = BeanProperty.create("surname");
+        BeanProperty email = BeanProperty.create("email");
+        BeanProperty birthday = BeanProperty.create("birthday");
+        BeanProperty creationDate = BeanProperty.create("creationDate");
+
+        tb.addColumnBinding(id).setColumnName("Id").setColumnClass(String.class);
+        tb.addColumnBinding(name).setColumnName("Name").setColumnClass(String.class);
+        tb.addColumnBinding(surname).setColumnName("Surname").setColumnClass(String.class);
+        tb.addColumnBinding(email).setColumnName("Email").setColumnClass(String.class);
+        tb.addColumnBinding(birthday).setColumnName("Birthday").setColumnClass(Date.class);
+        tb.addColumnBinding(creationDate).setColumnName("Creation date").setColumnClass(Date.class);
+        tb.bind();
+    }
 
     public void createStudent(Student student){
         Student saved = studentService.createStudent(student);
