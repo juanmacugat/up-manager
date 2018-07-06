@@ -4,6 +4,7 @@ import domain.Student;
 import org.junit.After;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,6 +27,8 @@ public class StudentRepositoryTest {
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
         student.setEmail("student@up.com");
+        student.setBirthday(new Date());
+        student.setCreation_date(new Date());
 
         Student studentSaved = StudentRepository.getInstance().save(student);
 
@@ -43,6 +46,8 @@ public class StudentRepositoryTest {
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
         student.setEmail("student@up.com");
+        student.setBirthday(new Date());
+        student.setCreation_date(new Date());
 
         StudentRepository.getInstance().save(student);
 
@@ -51,6 +56,8 @@ public class StudentRepositoryTest {
         student2.setName("NOMBRE");
         student2.setSurname("APELLIDO");
         student2.setEmail("student@up.com");
+        student2.setBirthday(new Date());
+        student2.setCreation_date(new Date());
 
         StudentRepository.getInstance().save(student2);
 
@@ -66,6 +73,8 @@ public class StudentRepositoryTest {
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
         student.setEmail("student@up.com");
+        student.setBirthday(new Date());
+        student.setCreation_date(new Date());
 
         Student studentSaved = StudentRepository.getInstance().save(student);
 
@@ -90,6 +99,8 @@ public class StudentRepositoryTest {
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
         student.setEmail("student@up.com");
+        student.setBirthday(new Date());
+        student.setCreation_date(new Date());
 
         StudentRepository.getInstance().save(student);
 
@@ -108,6 +119,8 @@ public class StudentRepositoryTest {
         student.setName("NOMBRE");
         student.setSurname("APELLIDO");
         student.setEmail("student@up.com");
+        student.setBirthday(new Date());
+        student.setCreation_date(new Date());
 
         StudentRepository.getInstance().save(student);
 

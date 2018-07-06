@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS Student(
   name VARCHAR(255) NOT NULL,
   surname VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  birthday DATE NOT NULL,
-  creation_date DATE NOT NULL
+  birthday DATETIME NOT NULL,
+  creation_date DATETIME NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS User(

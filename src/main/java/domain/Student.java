@@ -17,13 +17,13 @@ public class Student {
     private String surname;
     private String email;
     private Date birthday;
-    private Date creationDate;
+    private Date creation_date;
 
     public Student(String name, String surname, String email, Date birthday, Date creationDate){
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.birthday = birthday;
-        this.creationDate = creationDate;
+        this.creation_date = creationDate;
     }
 }
