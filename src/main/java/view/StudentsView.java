@@ -9,7 +9,7 @@ import java.awt.*;
 
 @Getter
 @Setter
-public class StudentView {
+public class StudentsView {
 
     private JFrame frame;
     private JLabel nameLabel;
@@ -18,14 +18,14 @@ public class StudentView {
     private JTextField surnameText;
     private JButton saveButton;
 
-    public StudentView(String title){
+    public StudentsView(String title){
         frame = new JFrame(title);
         frame.getContentPane().setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+        frame.setPreferredSize(new Dimension(1024,768));
         frame.setVisible(true);
-        frame.setSize(1024, 768);
-
+        frame.pack();
     }
 
     public void initializeData(Student student) {

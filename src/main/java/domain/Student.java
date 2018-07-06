@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Getter
@@ -15,6 +16,8 @@ public class Student {
     private String name;
     private String surname;
     private String legajo;
+    private Date birthday;
+
 
     public Student(String name, String surname, String studentId){
         this.name = name;

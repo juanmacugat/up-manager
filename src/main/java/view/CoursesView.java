@@ -1,40 +1,44 @@
 package view;
 
-import domain.Course;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import model.CourseTableModel;
-import model.GenericTableModel;
-import presenter.DashboardPresenter;
+import org.jdesktop.beansbinding.BeanProperty;
+import org.jdesktop.swingbinding.JTableBinding;
+import org.jdesktop.swingbinding.SwingBindings;
+import presenter.CoursesPresenter;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
+import java.util.Arrays;
+
+import static org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class DashboardView {
+public class CoursesView{
 
-    private DashboardPresenter presenter;
+    private static final String[] HEADERS = {"Id","Name","Teacher"};
+
+    private CoursesPresenter presenter;
     private JFrame frame;
     private JButton newButton;
     private JButton cancelButton;
     private JButton editButton;
-    private JTable courseTables;
-    private AbstractTableModel courseTableModel = new CourseTableModel();
+    private JTable courseTable;
 
-    public DashboardView(){
+    public CoursesView(){
         initialize();
     }
 
     private void initialize() {
 
-        courseTables = new JTable(courseTableModel);
-
+        courseTable = new JTable();
         editButton = new JButton("EDIT");
         editButton.addActionListener(event -> {
 
@@ -56,7 +60,7 @@ public class DashboardView {
         frame.getContentPane().setBackground(Color.white);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(0,1,3,3));
-        frame.getContentPane().add(courseTables);
+        frame.getContentPane().add(courseTable);
         frame.getContentPane().add(newButton);
         frame.getContentPane().add(cancelButton);
 

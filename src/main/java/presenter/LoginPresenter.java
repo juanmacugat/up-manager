@@ -1,18 +1,17 @@
 package presenter;
 
+import domain.Login;
+import domain.User;
 import exceptions.DatabaseConnectionException;
 import exceptions.UserNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import domain.Login;
-import domain.User;
-import model.DashboardModel;
 import model.ErrorModel;
-import view.DashboardView;
 import view.ErrorView;
 import view.LoginView;
+import view.MainView;
 
 import javax.swing.*;
 
@@ -38,8 +37,9 @@ public class LoginPresenter {
     private void success(User session) {
         view.getFrame().setVisible(false);
         SwingUtilities.invokeLater(() ->{
-            DashboardView view = new DashboardView();
-            view.setPresenter(new DashboardPresenter(view, new DashboardModel()));
+            MainView view = new MainView();
+//            CoursesView view = new CoursesView();
+//            view.setPresenter(new CoursesPresenter(view));
         });
     }
 

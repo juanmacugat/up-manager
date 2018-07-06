@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import domain.Student;
 import repository.StudentRepository;
-import view.StudentView;
+import view.StudentsView;
 
 import javax.swing.*;
 
@@ -14,10 +14,10 @@ import javax.swing.*;
 @AllArgsConstructor
 public class StudentPresenter {
 
-    private StudentView studentView;
+    private StudentsView studentsView;
 
     public void initialize(){
-        studentView.getSaveButton().addActionListener(e -> saveStudent());
+        studentsView.getSaveButton().addActionListener(e -> saveStudent());
     }
 
     private void saveStudent() {
