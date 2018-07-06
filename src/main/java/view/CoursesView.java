@@ -3,7 +3,6 @@ package view;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import presenter.CoursesPresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,19 +14,17 @@ public class CoursesView{
 
     private static final String[] HEADERS = {"Id","Name","Teacher"};
 
-    private CoursesPresenter presenter;
     private JFrame frame;
     private JButton newButton;
     private JButton cancelButton;
     private JButton editButton;
     private JTable courseTable;
 
-    public CoursesView(CoursesPresenter presenter){
-        this.presenter = presenter;
-        initialize();
+    public CoursesView(String title){
+        initialize(title);
     }
 
-    private void initialize() {
+    private void initialize(String title) {
 
         courseTable = new JTable();
         editButton = new JButton("EDIT");
@@ -45,7 +42,7 @@ public class CoursesView{
             System.exit(0);
         });
 
-        frame =  new JFrame("DASHBOARD");
+        frame =  new JFrame(title);
         frame.setLocationRelativeTo(null);
 
         frame.getContentPane().setBackground(Color.white);

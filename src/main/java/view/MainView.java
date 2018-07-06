@@ -2,6 +2,7 @@ package view;
 
 import presenter.CoursesPresenter;
 import presenter.StudentsPresenter;
+import presenter.TeachersPresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -53,7 +54,7 @@ public class MainView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CoursesPresenter presenter = new CoursesPresenter();
-                CoursesView view = new CoursesView(presenter);
+                CoursesView view = new CoursesView("Courses");
                 presenter.setView(view);
             }
         });
@@ -65,6 +66,13 @@ public class MainView {
                 KeyEvent.VK_T);
         itemTeachers.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_1, ActionEvent.ALT_MASK));
+        itemTeachers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TeachersPresenter presenter = new TeachersPresenter();
+                TeachersView view = new TeachersView(presenter);
+            }
+        });
         options.add(itemTeachers);
 
         options.addSeparator();

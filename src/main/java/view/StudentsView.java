@@ -22,6 +22,10 @@ public class StudentsView {
     private JButton saveButton;
 
     public StudentsView(String title){
+        initialize(title);
+    }
+
+    private void initialize(String title){
         frame = new JFrame(title);
         frame.getContentPane().setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
