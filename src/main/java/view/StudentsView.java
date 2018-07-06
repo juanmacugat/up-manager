@@ -28,7 +28,6 @@ public class StudentsView {
     private void initialize(String title){
         frame = new JFrame(title);
         frame.getContentPane().setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setPreferredSize(new Dimension(600,600));
         frame.setVisible(true);

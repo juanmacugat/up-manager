@@ -46,7 +46,6 @@ public class CoursesView{
         frame.setLocationRelativeTo(null);
 
         frame.getContentPane().setBackground(Color.white);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(0,1,3,3));
         frame.getContentPane().add(courseTable);
         frame.getContentPane().add(newButton);
