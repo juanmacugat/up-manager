@@ -38,6 +38,7 @@ public class MainView {
                 SwingUtilities.invokeLater(() ->{
                     StudentsView view  = new StudentsView("Students");
                     StudentsPresenter presenter = new StudentsPresenter(view);
+                    view.setPresenter(presenter);
                 });
             }
         });
@@ -54,6 +55,7 @@ public class MainView {
             public void actionPerformed(ActionEvent e) {
                 CoursesView view = new CoursesView("Courses");
                 CoursesPresenter presenter = new CoursesPresenter(view);
+                view.setPresenter(presenter);
             }
         });
         options.add(itemCourses);
@@ -69,7 +71,7 @@ public class MainView {
             public void actionPerformed(ActionEvent e) {
                 TeachersView view = new TeachersView("Teachers");
                 TeachersPresenter presenter = new TeachersPresenter(view);
-
+                view.setPresenter(presenter);
             }
         });
         options.add(itemTeachers);

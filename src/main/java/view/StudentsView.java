@@ -3,6 +3,7 @@ package view;
 import lombok.Getter;
 import lombok.Setter;
 import domain.Student;
+import org.jdesktop.swingbinding.JTableBinding;
 import presenter.StudentsPresenter;
 
 import javax.swing.*;
@@ -10,10 +11,16 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Arrays;
+import java.util.Date;
 
 @Getter
 @Setter
 public class StudentsView {
+
+    private static final String[] headers = {"Id", "Name", "Surname", "Email", "Birthday", "Creation date"};
 
     private StudentsPresenter presenter;
 
@@ -22,6 +29,7 @@ public class StudentsView {
     private JButton newButton;
     private JButton cancelButton;
     private JButton editButton;
+    private DefaultTableModel tableModel;
     private DefaultTableModel studentsModel;
 
     public StudentsView(String title){
@@ -29,8 +37,9 @@ public class StudentsView {
     }
 
     private void initialize(String title){
+
         frame = new JFrame(title);
-        frame.getContentPane().setLayout(new BorderLayout());
+        frame.getContentPane().setLayout(new GridLayout(0,1,3,3));
         frame.setLocationRelativeTo(null);
         frame.setPreferredSize(new Dimension(600,600));
 
@@ -38,7 +47,7 @@ public class StudentsView {
         newButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+
             }
         });
         editButton = new JButton("EDIT");
@@ -46,26 +55,103 @@ public class StudentsView {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                int selectedRow = studentsTable.getSelectedRow();
+                String studentId = (String) studentsTable.getModel().getValueAt(selectedRow,0);
+                Student student = presenter.findStudentById(studentId);
+
+                String id = null, name = null, surname = null, email = null;
+                Date birthday = null, creation = null;
+
+                for (int i = 0; i < headers.length ; i++){
+
+                    if(i == 0)
+                        id = (String) studentsTable.getValueAt(selectedRow, getColumnByName(studentsTable,headers[i]));
+
+                    if(i == 1) {
+                        name = (String) studentsTable.getValueAt(selectedRow, getColumnByName(studentsTable, headers[i]));
+                        student.setName(name);
+                    }
+                    if(i == 2) {
+                        surname = (String) studentsTable.getValueAt(selectedRow, getColumnByName(studentsTable, headers[i]));
+                        student.setSurname(surname);
+                    }
+                    if(i == 3) {
+                        email = (String) studentsTable.getValueAt(selectedRow, getColumnByName(studentsTable, headers[i]));
+                        student.setEmail(email);
+                    }
+                    if(i == 4) {
+                        birthday = (Date) studentsTable.getValueAt(selectedRow, getColumnByName(studentsTable, headers[i]));
+                        student.setBirthday(birthday);
+                    }
+                    if(i == 5) {
+                        creation = (Date) studentsTable.getValueAt(selectedRow, getColumnByName(studentsTable, headers[i]));
+                        student.setCreation_date(creation);
+                    }
+                }
+
+                presenter.updateStudent(student);
             }
-        });
-        cancelButton = new JButton("CANCEL");
+        }
+    );
+
+    cancelButton = new JButton("DELETE");
         cancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
 
-            }
-        });
+            int selectedRow = studentsTable.getSelectedRow();
+            String studentId = (String) studentsTable.getModel().getValueAt(selectedRow,0);
+            Student student = presenter.findStudentById(studentId);
+            presenter.deleteStudent(student);
+        }
+    });
 
 
-        studentsTable = new JTable();
+    tableModel = new DefaultTableModel(){
 
-        frame.getContentPane().add(studentsTable);
+        private static final long serialVersionUID = 1L;
+        String[] headers = {"Id", "Name", "Surname", "Email", "Birthday", "Creation date"};
+
+        @Override
+        public int getColumnCount() {
+            return headers.length;
+        }
+
+        @Override
+        public boolean isCellEditable(int row, int col) {
+            return false;
+        }
+
+        @Override
+        public int getRowCount() {
+            return 0;
+        }
+
+        @Override
+        public String getColumnName(int index) {
+            return headers[index];
+        }
+
+        public String[] getHeaders(){
+            return headers;
+        }
+    };
+
+    studentsTable = new JTable(tableModel);
+        frame.getContentPane().add(new JScrollPane(studentsTable));
         frame.getContentPane().add(newButton);
         frame.getContentPane().add(cancelButton);
         frame.getContentPane().add(editButton);
 
         frame.setVisible(true);
         frame.pack();
+}
+
+    private int getColumnByName(JTable table, String header) {
+        for (int i=0; i < table.getColumnCount(); i++) {
+            if (table.getColumnName(i).equals(header)) return i;
+        }
+        return -1;
     }
 
 }

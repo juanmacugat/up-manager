@@ -3,6 +3,7 @@ package view;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import presenter.CoursesPresenter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +14,8 @@ import java.awt.*;
 public class CoursesView{
 
     private static final String[] HEADERS = {"Id","Name","Teacher"};
+
+    private CoursesPresenter presenter;
 
     private JFrame frame;
     private JButton newButton;
