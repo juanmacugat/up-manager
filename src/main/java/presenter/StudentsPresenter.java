@@ -32,6 +32,7 @@ public class StudentsPresenter {
     private Student selectedStudent;
 
     public StudentsPresenter(StudentsView view){
+        this.view = view;
         tb = SwingBindings.createJTableBinding(READ_WRITE, findAllStudents(), view.getStudentsTable());
         BeanProperty id = BeanProperty.create("id");
         BeanProperty name = BeanProperty.create("name");
@@ -70,6 +71,7 @@ public class StudentsPresenter {
         JOptionPane.showMessageDialog(null,
                 "Student saved: " + saved.getId(),
                 "Information", JOptionPane.INFORMATION_MESSAGE);
+        view.clearAll();
     }
 
     public void updateStudent(Student student){
