@@ -14,10 +14,10 @@ import static org.junit.Assert.assertTrue;
 
 public class StudentRepositoryTest {
 
-//    @After
-//    public void tearDown(){
-//        StudentRepository.getInstance().deleteAll();
-//    }
+    @After
+    public void tearDown(){
+        StudentRepository.getInstance().deleteAll();
+    }
 
     @Test
     public void saveStudent(){
