@@ -39,4 +39,4 @@ CREATE TABLE IF NOT EXISTS Grade(
 INSERT INTO User (id, username,password)
 VALUES ('f9f14527-a9f1-4106-bebd-275d7445dce8',
         'admin',
-        '$2a$10$HE9dcp/OMe5zeFPlihxMCeLHJ.9NyjrO/Bb7VqlOeCD8N7aNvPMoS');
+        '$2a$10$kSXijolQZaXTuUy00HONF.aymO2HL7DTo6ZbV1sQWyIQTZ898U6q6');
