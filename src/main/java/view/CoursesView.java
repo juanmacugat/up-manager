@@ -1,16 +1,10 @@
 package view;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import presenter.CoursesPresenter;
 
 import javax.swing.*;
 import java.awt.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
 public class CoursesView{
 
     private static final String[] HEADERS = {"Id","Name","Teacher"};
@@ -25,6 +19,10 @@ public class CoursesView{
 
     public CoursesView(String title){
         initialize(title);
+    }
+
+    public CoursesView() {
+
     }
 
     private void initialize(String title) {
@@ -59,4 +57,11 @@ public class CoursesView{
     }
 
 
+    public void setPresenter(final CoursesPresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    public JTable getCourseTable() {
+        return courseTable;
+    }
 }

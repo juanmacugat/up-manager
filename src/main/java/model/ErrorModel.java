@@ -1,15 +1,15 @@
 package model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
-@AllArgsConstructor
 public class ErrorModel {
 
     private String message;
 
 
+    public ErrorModel(final String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

@@ -1,14 +1,10 @@
 package view;
 
-import lombok.Getter;
-import lombok.Setter;
 import presenter.LoginPresenter;
 
 import javax.swing.*;
 import java.awt.*;
 
-@Getter
-@Setter
 public class LoginView {
 
     private LoginPresenter presenter;
@@ -19,6 +15,10 @@ public class LoginView {
     private JPasswordField password;
     private JButton loginButton;
     private JButton cancelButton;
+
+    public JFrame getFrame(){
+        return frame;
+    }
 
     public LoginView(){
         initialize();
@@ -58,5 +58,9 @@ public class LoginView {
 
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public void setPresenter(final LoginPresenter loginPresenter) {
+        this.presenter = loginPresenter;
     }
 }

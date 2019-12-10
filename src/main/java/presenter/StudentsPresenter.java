@@ -1,16 +1,9 @@
 package presenter;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import domain.Student;
 import org.jdesktop.beansbinding.BeanProperty;
-import org.jdesktop.beansbinding.Binding;
-import org.jdesktop.beansbinding.BindingListener;
-import org.jdesktop.beansbinding.Bindings;
 import org.jdesktop.swingbinding.JTableBinding;
 import org.jdesktop.swingbinding.SwingBindings;
-import repository.StudentRepository;
 import service.StudentService;
 import service.StudentServiceImpl;
 import view.StudentsView;
@@ -19,11 +12,8 @@ import javax.swing.*;
 import java.util.Date;
 import java.util.List;
 
-import static org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ;
 import static org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE;
 
-@Getter
-@Setter
 public class StudentsPresenter {
 
     private JTableBinding tb;

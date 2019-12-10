@@ -1,8 +1,6 @@
 package view;
 
 import domain.Student;
-import lombok.Getter;
-import lombok.Setter;
 import presenter.StudentsPresenter;
 
 import javax.swing.*;
@@ -16,8 +14,6 @@ import java.util.Date;
 
 import static javax.swing.BoxLayout.X_AXIS;
 
-@Getter
-@Setter
 public class StudentsView {
 
     private static final String[] headers = {"Id", "Name", "Surname", "Email", "Birthday", "Creation date"};
@@ -202,5 +198,13 @@ public class StudentsView {
         txtSurname.setText("");
         txtEmail.setText("");
         txtBirthday.setText("");
+    }
+
+    public void setPresenter(final StudentsPresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    public JTable getStudentsTable() {
+        return studentsTable;
     }
 }

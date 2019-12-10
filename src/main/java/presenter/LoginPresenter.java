@@ -4,25 +4,23 @@ import domain.Login;
 import domain.User;
 import exceptions.DatabaseConnectionException;
 import exceptions.UserNotFoundException;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import model.ErrorModel;
+import view.CoursesView;
 import view.ErrorView;
 import view.LoginView;
 import view.MainView;
 
 import javax.swing.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class LoginPresenter {
 
     private LoginView view;
     private Login model;
+
+    public LoginPresenter(final LoginView view, final Login login) {
+        this.view = view;
+        this.model = login;
+    }
 
     public void login(String username, String password){
 

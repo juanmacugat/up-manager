@@ -1,14 +1,10 @@
 package view;
 
-import lombok.Getter;
-import lombok.Setter;
 import presenter.ErrorPresenter;
 
 import javax.swing.*;
 import java.awt.*;
 
-@Getter
-@Setter
 public class ErrorView {
 
     private ErrorPresenter presenter;
@@ -33,5 +29,9 @@ public class ErrorView {
         frame.getContentPane().add(ok);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public void setPresenter(final ErrorPresenter errorPresenter) {
+        this.presenter = errorPresenter;
     }
 }

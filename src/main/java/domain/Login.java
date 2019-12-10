@@ -1,17 +1,9 @@
 package domain;
 
 import exceptions.UserNotFoundException;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.mindrot.jbcrypt.BCrypt;
 import repository.UserRepository;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Login {
 
     private String username;

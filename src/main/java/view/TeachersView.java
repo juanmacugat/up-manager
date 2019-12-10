@@ -1,13 +1,7 @@
 package view;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import presenter.TeachersPresenter;
 
-@Getter
-@Setter
-@AllArgsConstructor
 public class TeachersView {
     
     private TeachersPresenter presenter;
@@ -17,5 +11,9 @@ public class TeachersView {
     }
 
     private void initialize(String title) {
+    }
+
+    public void setPresenter(final TeachersPresenter presenter) {
+        this.presenter = presenter;
     }
 }
