@@ -34,7 +34,6 @@ public class DashboardView extends JFrame {
 
         setTitle(TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setExtendedState(MAXIMIZED_BOTH);
         setVisible(true);
         getContentPane().add(tabs);
 

@@ -11,8 +11,8 @@ public class LoginView extends JFrame {
 
     private final LoginPresenter presenter;
     private JPanel centerPanel, southPanel;
-    private JTextField username;
-    private JPasswordField password;
+    private JTextField txtUsername;
+    private JPasswordField txtPassword;
     private JButton loginButton, resetButton;
 
     public LoginView(final LoginPresenter presenter) {
@@ -25,20 +25,30 @@ public class LoginView extends JFrame {
 
         centerPanel = new JPanel();
         centerPanel.setLayout(new GridLayout(2, 2));
-        centerPanel.add(new JLabel("usuario"));
-        username = new JTextField();
-        centerPanel.add(username);
-        centerPanel.add(new JLabel("contrasena"));
-        password = new JPasswordField();
-        password.addKeyListener(new LoginListener());
-        centerPanel.add(password);
+
+        JLabel lblUsername = new JLabel("usuario");
+        lblUsername.setHorizontalAlignment(SwingConstants.CENTER);
+        centerPanel.add(lblUsername);
+
+        txtUsername = new JTextField();
+        centerPanel.add(txtUsername);
+
+        JLabel lblPassword = new JLabel("contrasena");
+        lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
+        centerPanel.add(lblPassword);
+
+        txtPassword = new JPasswordField();
+        txtPassword.addKeyListener(new LoginListener());
+        centerPanel.add(txtPassword);
+
         southPanel = new JPanel();
         southPanel.setLayout(new GridLayout(1, 2));
+
         loginButton = new JButton("ingresar");
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                presenter.login(username.getText(), password.getPassword());
+                presenter.login(txtUsername.getText(), txtPassword.getPassword());
             }
         });
         southPanel.add(loginButton);
@@ -46,14 +56,14 @@ public class LoginView extends JFrame {
         resetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                username.setText("");
-                password.setText("");
+                txtUsername.setText("");
+                txtPassword.setText("");
             }
         });
         southPanel.add(resetButton);
 
-        this.add(centerPanel, BorderLayout.CENTER);
-        this.add(southPanel, BorderLayout.SOUTH);
+        getContentPane().add(centerPanel, BorderLayout.CENTER);
+        getContentPane().add(southPanel, BorderLayout.SOUTH);
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setBounds(450, 250, 375, 140);
@@ -72,7 +82,7 @@ public class LoginView extends JFrame {
     }
 
     private void login() {
-        presenter.login(username.getText(), password.getPassword());
+        presenter.login(txtUsername.getText(), txtPassword.getPassword());
     }
 
 
