@@ -1,11 +1,10 @@
 package students;
 
 import javax.swing.*;
-import java.util.Date;
 
-public class StudentsModelList extends AbstractListModel<Student> {
+public class StudentsModelList extends DefaultListModel<Student> {
 
-//    private StudentRepository repository = StudentRepository.getInstance();
+    private StudentRepository repository = StudentRepository.getInstance();
 
     private static StudentsModelList instance= new StudentsModelList();
 
@@ -19,11 +18,11 @@ public class StudentsModelList extends AbstractListModel<Student> {
 
     @Override
     public int getSize() {
-        return 10;
+        return repository.findAll().size();
     }
 
     @Override
     public Student getElementAt(final int index) {
-        return null;
+        return repository.findAll().get(index);
     }
 }

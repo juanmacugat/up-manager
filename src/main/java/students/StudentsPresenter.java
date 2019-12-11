@@ -14,9 +14,7 @@ public class StudentsPresenter {
 
     public void createStudent(Student student){
         Student saved = service.createStudent(student);
-        JOptionPane.showMessageDialog(null,
-                "Student saved: " + saved.getId(),
-                "Information", JOptionPane.INFORMATION_MESSAGE);
+        view.update(saved);
         view.clear();
     }
 

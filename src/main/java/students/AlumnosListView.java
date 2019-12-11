@@ -19,7 +19,7 @@ public class AlumnosListView extends JPanel {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 SwingUtilities.invokeLater(() ->{
-                    AgregarAlumnoView view = new AgregarAlumnoView();
+                    AddStudentView view = new AddStudentView(null);
                 });
             }
         });

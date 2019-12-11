@@ -10,11 +10,9 @@ import java.awt.event.ActionListener;
 public class StudentsView extends JPanel {
 
     private StudentsPresenter presenter;
-    private JTextField txtBirthdate;
-    private JTextField txtName;
-    private JTextField txtLastname;
-    private JTextField txtEmail;
-
+    private JTextField txtBirthdate,txtName,txtLastname,txtEmail;
+    private StudentsModelList model;
+    private JList<Student> studentList;
     public StudentsView(){
         initialize();
     }
@@ -34,6 +32,13 @@ public class StudentsView extends JPanel {
         txtBirthdate = new JTextField();
         JButton btnEdit = new JButton("* editar");
         JButton btnDelete = new JButton("* eliminar");
+        btnDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                Student student = model.getElementAt(studentList.getSelectedIndex());
+                presenter.deleteStudent(student);
+            }
+        });
 
         JPanel panelEdicion = new JPanel(new GridLayout(0,2));
         panelEdicion.add(new JLabel("Nombre: "));
@@ -50,8 +55,9 @@ public class StudentsView extends JPanel {
     }
 
     private JPanel leftPanel() {
-        StudentsModelList model = StudentsModelList.getInstance();
-        JList<Student> studentList = new JList<>(model);
+        model = StudentsModelList.getInstance();
+        studentList = new JList<>(model);
+        studentList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         studentList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(final ListSelectionEvent e) {
@@ -64,7 +70,7 @@ public class StudentsView extends JPanel {
         btnAgregarAlumno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                AgregarAlumnoView view = new AgregarAlumnoView();
+                AddStudentView view = new AddStudentView(presenter);
             }
         });
         panelListado.add(studentList);
@@ -84,5 +90,9 @@ public class StudentsView extends JPanel {
 
     public void setPresenter(final StudentsPresenter presenter) {
         this.presenter = presenter;
+    }
+
+    public void update(final Student student) {
+        model.addElement(student);
     }
 }
