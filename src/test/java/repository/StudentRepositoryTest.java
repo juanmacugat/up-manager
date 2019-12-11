@@ -1,8 +1,9 @@
 package repository;
 
-import domain.Student;
+import students.Student;
 import org.junit.After;
 import org.junit.Test;
+import students.StudentRepository;
 
 import java.util.Date;
 import java.util.List;

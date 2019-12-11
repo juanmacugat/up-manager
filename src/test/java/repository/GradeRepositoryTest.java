@@ -1,9 +1,9 @@
 package repository;
 
-import domain.Course;
-import domain.Grade;
-import domain.Student;
-import domain.Teacher;
+import courses.Course;
+import grades.Grade;
+import grades.GradeRepository;
+import students.Student;
 import org.junit.After;
 import org.junit.Test;
 
@@ -27,15 +27,9 @@ public class GradeRepositoryTest {
         student.setSurname("APELLIDO");
         student.setEmail("student@up.com");
 
-        Teacher teacher = new Teacher();
-        teacher.setId(UUID.randomUUID().toString());
-        teacher.setName("NOMBRE PROFESOR");
-        teacher.setSurname("APELLIDO PROFESOR");
-
         Course course = new Course();
         course.setId(UUID.randomUUID().toString());
         course.setName("LABORATORIO #1");
-        course.setTeacher(teacher);
 
         Grade grade = new Grade();
         grade.setId(UUID.randomUUID().toString());
