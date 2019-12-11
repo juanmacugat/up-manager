@@ -13,15 +13,20 @@ public class CoursesPresenter {
 
     public void createCourse(final Course course){
         Course saved = service.createCourse(course);
-        view.update(saved);
-        view.clear();
+        view.update();
     }
 
     public void updateCourse(final Course course){
-
+        service.updateCourse(course);
+        view.update();
     }
 
     public List<Course> findAllCourses() {
         return service.findAllCourses();
+    }
+
+    public void deleteCourse(final Course course) {
+        service.deleteCourse(course);
+        view.update();
     }
 }

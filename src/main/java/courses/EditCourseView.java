@@ -5,9 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddCourseView extends JFrame {
+public class EditCourseView extends JFrame {
 
-    private static final String TITLE = "Nuevo Curso";
+    private static final String TITLE = "Editar Curso";
     private final CoursesPresenter presenter;
     private JPanel south;
     private JButton btnCancel;
@@ -23,7 +23,7 @@ public class AddCourseView extends JFrame {
     private JComboBox<Integer> cmbCondition;
 
 
-    public AddCourseView(final CoursesPresenter presenter){
+    public EditCourseView(final Course course, final CoursesPresenter presenter){
         this.presenter = presenter;
         
         south = new JPanel();
@@ -33,10 +33,13 @@ public class AddCourseView extends JFrame {
         btnConfirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                Course course = new Course(txtName.getText(), txtTeacher.getText(), cmbMajor.getSelectedItem().toString(), cmbCondition.getSelectedIndex());
-                presenter.createCourse(course);
+                course.setName(txtName.getText());
+                course.setTeacher(txtTeacher.getText());
+                course.setMajor(cmbMajor.getSelectedItem().toString());
+                course.setPass_condition(cmbCondition.getSelectedIndex());
+                presenter.updateCourse(course);
                 JOptionPane.showMessageDialog(null,
-                        "Se dio de alta correctamente la materia",
+                        "Se actualizo correctamente la materia",
                         "Information", JOptionPane.INFORMATION_MESSAGE);
                 dispose();
             }
@@ -60,7 +63,7 @@ public class AddCourseView extends JFrame {
         lblName.setHorizontalAlignment(SwingConstants.CENTER);
         center.add(lblName);
         
-        txtName = new JTextField();
+        txtName = new JTextField(course.getName());
         center.add(txtName);
         txtName.setColumns(10);
         
@@ -68,7 +71,7 @@ public class AddCourseView extends JFrame {
         lblTeacher.setHorizontalAlignment(SwingConstants.CENTER);
         center.add(lblTeacher);
         
-        txtTeacher = new JTextField();
+        txtTeacher = new JTextField(course.getTeacher());
         center.add(txtTeacher);
         txtTeacher.setColumns(10);
         

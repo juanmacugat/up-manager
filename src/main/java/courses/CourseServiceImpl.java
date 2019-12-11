@@ -1,7 +1,5 @@
 package courses;
 
-import students.StudentRepository;
-
 import java.util.List;
 
 public class CourseServiceImpl implements CourseService {
