@@ -13,6 +13,7 @@ public class StudentsView extends JPanel {
     private JTextField txtBirthdate,txtName,txtLastname,txtEmail;
     private StudentsModelList model;
     private JList<Student> studentList;
+
     public StudentsView(){
         initialize();
     }
@@ -31,12 +32,24 @@ public class StudentsView extends JPanel {
         txtEmail = new JTextField();
         txtBirthdate = new JTextField();
         JButton btnEdit = new JButton("* editar");
-        JButton btnDelete = new JButton("* eliminar");
+        btnEdit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                Student student = model.getElementAt(studentList.getSelectedIndex());
+                student.setName(txtName.getText());
+                student.setSurname(txtLastname.getText());
+                student.setEmail(txtEmail.getText());
+                presenter.updateStudent(student);
+                showDialog("El alumno se actualizo correctamente");
+            }
+        });
+        JButton btnDelete = new JButton("- eliminar");
         btnDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 Student student = model.getElementAt(studentList.getSelectedIndex());
                 presenter.deleteStudent(student);
+                showDialog("El alumno se elimino correctamente");
             }
         });
 
@@ -52,6 +65,12 @@ public class StudentsView extends JPanel {
         panelEdicion.add(btnEdit);
         panelEdicion.add(btnDelete);
         return panelEdicion;
+    }
+
+    private void showDialog(final String message) {
+        JOptionPane.showMessageDialog(null,
+                message,
+                "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private JPanel leftPanel() {
@@ -85,7 +104,9 @@ public class StudentsView extends JPanel {
     }
 
     public void clear() {
-
+        txtName.setText("");
+        txtLastname.setText("");
+        txtEmail.setText("");
     }
 
     public void setPresenter(final StudentsPresenter presenter) {

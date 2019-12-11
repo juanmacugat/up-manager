@@ -53,9 +53,7 @@ public class AddStudentView extends JFrame {
                 if (check()) {
                     Student student = new Student(name.getText(), lastName.getText(), email.getText(), new Date(), new Date());
                     presenter.createStudent(student);
-                    JOptionPane.showMessageDialog(null,
-                            "Se dio de alta correctamente el alumno",
-                            "Information", JOptionPane.INFORMATION_MESSAGE);
+                    showDialog();
                     dispose();
                 }
             }
@@ -77,6 +75,12 @@ public class AddStudentView extends JFrame {
         setBounds(470, 200, 400, 270);
         setResizable(false);
         setVisible(true);
+    }
+
+    private void showDialog() {
+        JOptionPane.showMessageDialog(null,
+                "Se dio de alta correctamente el alumno",
+                "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void clear() {

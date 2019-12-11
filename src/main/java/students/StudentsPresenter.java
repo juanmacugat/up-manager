@@ -1,6 +1,5 @@
 package students;
 
-import javax.swing.*;
 import java.util.List;
 
 public class StudentsPresenter {
@@ -19,10 +18,9 @@ public class StudentsPresenter {
     }
 
     public void updateStudent(Student student){
-        Student updated = service.updateStudent(student);
-        JOptionPane.showMessageDialog(null,
-                "Student saved: " + updated.getId(),
-                "Information", JOptionPane.INFORMATION_MESSAGE);
+        service.updateStudent(student);
+        view.update(student);
+        view.clear();
     }
 
     public List<Student> findAllStudents(){
@@ -35,6 +33,8 @@ public class StudentsPresenter {
 
     public void deleteStudent(Student student){
         service.deleteStudent(student);
+        view.update(student);
+        view.clear();
     }
 
 }
