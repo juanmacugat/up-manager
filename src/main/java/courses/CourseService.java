@@ -6,9 +6,9 @@ public interface CourseService {
 
     public List<Course> findAllCourses();
 
-    public void addCourse(Course course);
+    public Course createCourse(final Course course);
 
-    public void deleteCourse(Course course);
+    public void deleteCourse(final Course course);
 
-    public void editCourse(Course course);
+    public Course updateCourse(final Course course);
 }

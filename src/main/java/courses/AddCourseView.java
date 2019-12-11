@@ -1,22 +1,21 @@
-package students;
+package courses;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 
-public class AddStudentView extends JFrame {
+public class AddCourseView extends JFrame {
 
-    private static final String TITLE = "Nuevo Alumno";
-    private final StudentsPresenter presenter;
+    private static final String TITLE = "Nuevo Curso";
+    private final CoursesPresenter presenter;
 
     private JPanel jPanelCenter, jPanelSouth;
     private JButton addButton, exitButton;
-    private JTextField name, lastName, department, email, sex;
+    private JTextField name, subject, teacher;
 
 
-    public AddStudentView(final StudentsPresenter presenter){
+    public AddCourseView(final CoursesPresenter presenter){
         this.presenter = presenter;
         initialize();
     }
@@ -24,22 +23,16 @@ public class AddStudentView extends JFrame {
     private void initialize() {
         setTitle(TITLE);
         jPanelCenter = new JPanel();
-        jPanelCenter.setLayout(new GridLayout(6, 2));
+        jPanelCenter.setLayout(new GridLayout(4, 2));
         jPanelCenter.add(new JLabel("nombre"));
         name = new JTextField();
         jPanelCenter.add(name);
-        jPanelCenter.add(new JLabel("apellido"));
-        lastName = new JTextField();
-        jPanelCenter.add(lastName);
-        jPanelCenter.add(new JLabel("sexo"));
-        sex = new JTextField();
-        jPanelCenter.add(sex);
-        jPanelCenter.add(new JLabel("ciudad"));
-        department = new JTextField();
-        jPanelCenter.add(department);
-        jPanelCenter.add(new JLabel("email"));
-        email = new JTextField();
-        jPanelCenter.add(email);
+        jPanelCenter.add(new JLabel("codigo materia"));
+        subject = new JTextField();
+        jPanelCenter.add(subject);
+        jPanelCenter.add(new JLabel("profesor"));
+        teacher = new JTextField();
+        jPanelCenter.add(teacher);
         jPanelCenter.add(new JSeparator(SwingConstants.HORIZONTAL));
         jPanelCenter.add(new JSeparator(SwingConstants.HORIZONTAL));
 
@@ -51,8 +44,8 @@ public class AddStudentView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (check()) {
-                    Student student = new Student(name.getText(), lastName.getText(), email.getText(), new Date(), new Date());
-                    presenter.createStudent(student);
+                    Course course = new Course(name.getText());
+                    presenter.createCourse(course);
                     showDialog();
                     dispose();
                 }
@@ -79,21 +72,19 @@ public class AddStudentView extends JFrame {
 
     private void showDialog() {
         JOptionPane.showMessageDialog(null,
-                "Se dio de alta correctamente el alumno",
+                "Se dio de alta correctamente el curso",
                 "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void clear() {
         name.setText("");
-        lastName.setText("");
-        sex.setText("");
-        email.setText("");
-        department.setText("");
+        subject.setText("");
+        teacher.setText("");
     }
 
     private boolean check() {
         boolean result = false;
-        if ("".equals(name.getText())  || "".equals(department.getText()) || "".equals(sex.getText()) || "".equals(email.getText())) {
+        if ("".equals(name.getText())  || "".equals(teacher.getText())) {
             return result;
         } else {
             result = true;

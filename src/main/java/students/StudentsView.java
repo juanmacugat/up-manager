@@ -19,7 +19,7 @@ public class StudentsView extends JPanel {
     }
 
     private void initialize() {
-        setLayout(new GridLayout(0,2));
+        setLayout(new GridLayout(1,0));
         JPanel leftPanel = leftPanel();
         JPanel rightPanel = rightPanel();
         add(leftPanel);
@@ -27,6 +27,7 @@ public class StudentsView extends JPanel {
     }
 
     private JPanel rightPanel() {
+        JPanel panel = new JPanel(new BorderLayout());
         txtName = new JTextField();
         txtLastname = new JTextField();
         txtEmail = new JTextField();
@@ -62,9 +63,14 @@ public class StudentsView extends JPanel {
         panelEdicion.add(txtEmail);
         panelEdicion.add(new JLabel("Fecha de nacimiento: "));
         panelEdicion.add(txtBirthdate);
-        panelEdicion.add(btnEdit);
-        panelEdicion.add(btnDelete);
-        return panelEdicion;
+
+        JPanel panelBotones = new JPanel(new GridLayout(1,2));
+        panelBotones.add(btnEdit);
+        panelBotones.add(btnDelete);
+
+        panel.add(panelEdicion, BorderLayout.CENTER);
+        panel.add(panelBotones,BorderLayout.SOUTH);
+        return panel;
     }
 
     private void showDialog(final String message) {
@@ -74,6 +80,7 @@ public class StudentsView extends JPanel {
     }
 
     private JPanel leftPanel() {
+        JPanel panel = new JPanel(new BorderLayout());
         model = StudentsModelList.getInstance();
         studentList = new JList<>(model);
         studentList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -84,7 +91,7 @@ public class StudentsView extends JPanel {
                 updateSelectedStudent(selectedStudent);
             }
         });
-        JPanel panelListado = new JPanel(new GridLayout(2,0));
+
         JButton btnAgregarAlumno = new JButton("+ alumno");
         btnAgregarAlumno.addActionListener(new ActionListener() {
             @Override
@@ -92,9 +99,9 @@ public class StudentsView extends JPanel {
                 AddStudentView view = new AddStudentView(presenter);
             }
         });
-        panelListado.add(studentList);
-        panelListado.add(btnAgregarAlumno);
-        return panelListado;
+        panel.add(studentList, BorderLayout.CENTER);
+        panel.add(btnAgregarAlumno,BorderLayout.SOUTH);
+        return panel;
     }
 
     private void updateSelectedStudent(final Student student) {
