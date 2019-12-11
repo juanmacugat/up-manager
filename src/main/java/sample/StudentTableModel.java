@@ -9,7 +9,7 @@ public class StudentTableModel extends AbstractTableModel {
 
     private StudentRepository repository = StudentRepository.getInstance();
 
-    String headers[] = new String[]{"id", "name", "lastname", "email"};
+    String headers[] = new String[]{"ID", "NOMBRE", "APELLIDO", "EMAIL", "FECHA DE NACIMIENTO", "FECHA DE CREACION"};
 
 
 @Override
@@ -19,7 +19,7 @@ public class StudentTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return headers.length;
     }
 
     @Override
@@ -37,5 +37,9 @@ public class StudentTableModel extends AbstractTableModel {
             default:
                 return null;
         }
+    }
+
+    public Student elementAt(final int row) {
+        return repository.findAll().get(row);
     }
 }

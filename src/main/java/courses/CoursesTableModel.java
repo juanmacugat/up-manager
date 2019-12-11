@@ -1,15 +1,12 @@
 package courses;
 
-import courses.Course;
-import courses.CourseRepository;
-
 import javax.swing.table.AbstractTableModel;
 
 public class CoursesTableModel extends AbstractTableModel {
 
     private static CourseRepository repository = CourseRepository.getInstance();
 
-    String headers[] = new String[]{"id", "nombre", "profesor", "facultad", "condicion aprobacion"};
+    String headers[] = new String[]{"ID", "NOMBRE", "PROFESOR", "FACULTAD", "CONDICION DE APROBACION"};
 
 
     @Override

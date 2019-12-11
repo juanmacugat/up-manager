@@ -3,6 +3,7 @@ package dashboard;
 import courses.CoursesView;
 import grades.GradesPresenter;
 import grades.GradesView;
+import students.NewStudentsView;
 import students.StudentsView;
 import courses.CoursesPresenter;
 import students.StudentsPresenter;
@@ -27,8 +28,12 @@ public class DashboardView extends JFrame {
         GradesPresenter gradesPresenter = new GradesPresenter(gradesView);
         gradesView.setPresenter(gradesPresenter);
 
+        NewStudentsView studentsView1 = new NewStudentsView();
+        StudentsPresenter studentsPresenter1 = new StudentsPresenter(studentsView);
+        studentsView1.setPresenter(studentsPresenter1);
+
         JTabbedPane tabs = new JTabbedPane();
-        tabs.addTab("Cursos", coursesView);
+        tabs.addTab("Materia", coursesView);
         tabs.addTab("Alumnos", studentsView);
         tabs.addTab("Notas", gradesView);
 

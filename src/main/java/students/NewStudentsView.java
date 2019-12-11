@@ -1,39 +1,39 @@
-package courses;
+package students;
+
+import sample.StudentTableModel;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CoursesView extends JPanel{
-	private final CoursesTableModel model;
+public class NewStudentsView  extends JPanel {
+
+	private final StudentTableModel model;
 	private JTextField txtSearch;
-	private CoursesPresenter presenter;
-	private JTable tblCourses;
+	private JTable tblStudents;
+	private StudentsPresenter presenter;
 
-	public CoursesView() {
-
-		setLayout(new BorderLayout());
+	public NewStudentsView() {
+		setLayout(new BorderLayout(0, 0));
 
 		JPanel south = new JPanel();
 		add(south, BorderLayout.SOUTH);
 
 		JButton btnAdd = new JButton("agregar");
-		south.add(btnAdd);
 		btnAdd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				new AddCourseView(presenter);
+				new AddStudentView(presenter);
 			}
 		});
+		south.add(btnAdd);
 
 		JButton btnEdit = new JButton("editar");
 		btnEdit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				new EditCourseView(getSelectedCourse(), presenter);
+				new EditStudentView(getSelectedStudent(), presenter);
 			}
 		});
 		south.add(btnEdit);
@@ -42,7 +42,7 @@ public class CoursesView extends JPanel{
 		btnDelete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				presenter.deleteCourse(getSelectedCourse());
+				presenter.deleteStudent(getSelectedStudent());
 				JOptionPane.showMessageDialog(null,
 						"Se elimino el curso correctamente",
 						"Information", JOptionPane.INFORMATION_MESSAGE);
@@ -55,32 +55,28 @@ public class CoursesView extends JPanel{
 		north.setLayout(new BorderLayout(0, 0));
 
 		txtSearch = new JTextField();
-		north.add(txtSearch, BorderLayout.CENTER);
 		txtSearch.setColumns(10);
+		north.add(txtSearch, BorderLayout.CENTER);
 
 		JButton btnSearch = new JButton("buscar");
 		north.add(btnSearch, BorderLayout.EAST);
 
-		model = new CoursesTableModel();
-		tblCourses = new JTable(model);
-		tblCourses.setAutoCreateColumnsFromModel(true);
-		tblCourses.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		model = new StudentTableModel();
+		tblStudents = new JTable(model);
+
+		tblStudents.setAutoCreateColumnsFromModel(true);
+		tblStudents.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportView(tblCourses);
+		scrollPane.setViewportView(tblStudents);
 		add(scrollPane, BorderLayout.CENTER);
 	}
 
-	private Course getSelectedCourse() {
-		int selectedRow = tblCourses.getSelectedRow();
+	private Student getSelectedStudent() {
+		int selectedRow = tblStudents.getSelectedRow();
 		return model.elementAt(selectedRow);
 	}
 
-	public void setPresenter(final CoursesPresenter presenter) {
+	public void setPresenter(final StudentsPresenter presenter) {
 		this.presenter = presenter;
 	}
-
-	public void update() {
-		model.fireTableDataChanged();
-	}
-
 }
