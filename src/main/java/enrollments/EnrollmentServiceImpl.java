@@ -12,12 +12,6 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     }
 
     @Override
-    public Enrollment updateEnrollment(final Enrollment enrollment) {
-        repository.update(enrollment);
-        return enrollment;
-    }
-
-    @Override
     public List<Enrollment> getAllEnrollments() {
         return repository.findAll();
     }

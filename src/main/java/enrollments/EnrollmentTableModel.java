@@ -1,7 +1,6 @@
 package enrollments;
 
 import courses.CourseRepository;
-import students.Student;
 import students.StudentRepository;
 
 import javax.swing.table.AbstractTableModel;
