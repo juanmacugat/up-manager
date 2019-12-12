@@ -47,7 +47,7 @@ public class EditCourseView extends JFrame {
                 course.setName(txtName.getText());
                 course.setTeacher(txtTeacher.getText());
                 course.setMajor(cmbMajor.getSelectedItem().toString());
-                course.setPass_condition(cmbCondition.getSelectedIndex());
+                course.setPass_condition((Integer)cmbCondition.getSelectedItem());
                 presenter.update(course);
                 JOptionPane.showMessageDialog(null,
                         "Se actualizo correctamente la materia",
