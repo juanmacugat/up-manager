@@ -1,6 +1,6 @@
 package courses;
 
-import presenter.Service;
+import utils.Service;
 
 import java.util.List;
 

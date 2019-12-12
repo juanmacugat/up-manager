@@ -1,6 +1,6 @@
 package grades;
 
-import presenter.Service;
+import utils.Service;
 
 import java.util.List;
 
@@ -14,7 +14,8 @@ public class GradeService extends Service<Grade> {
 
     @Override
     public Grade update(final Grade grade) {
-        return null;
+        repository.update(grade);
+        return grade;
     }
 
     @Override

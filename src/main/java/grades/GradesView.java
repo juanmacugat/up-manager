@@ -35,9 +35,24 @@ public class GradesView extends JPanel {
 		});
 
 		JButton btnEdit = new JButton("editar");
+		btnEdit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				new EditGradeView(getSelectedGrade(),presenter);
+			}
+		});
 		south.add(btnEdit);
 
 		JButton btnDelete = new JButton("borrar");
+		btnDelete.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				presenter.delete(getSelectedGrade());
+				JOptionPane.showMessageDialog(null,
+						"Se elimino la nota correctamente",
+						"Information", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		south.add(btnDelete);
 
 		JPanel north = new JPanel();
@@ -57,6 +72,11 @@ public class GradesView extends JPanel {
 		JScrollPane center = new JScrollPane();
 		add(center, BorderLayout.CENTER);
 		center.setViewportView(tblGrades);
+	}
+
+	private Grade getSelectedGrade() {
+		int selectedRow = tblGrades.getSelectedRow();
+		return model.elementAt(selectedRow);
 	}
 
 	public void update() {

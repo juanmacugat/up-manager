@@ -42,7 +42,7 @@ public class StudentsView extends JPanel {
 			public void actionPerformed(final ActionEvent e) {
 				presenter.delete(getSelectedStudent());
 				JOptionPane.showMessageDialog(null,
-						"Se elimino el curso correctamente",
+						"Se elimino el alumno correctamente",
 						"Information", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});

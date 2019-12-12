@@ -1,11 +1,8 @@
 package login;
 
-import error.ErrorPresenter;
+import dashboard.DashboardView;
 import exceptions.DatabaseConnectionException;
 import exceptions.UserNotFoundException;
-import error.ErrorModel;
-import dashboard.DashboardView;
-import error.ErrorView;
 
 import javax.swing.*;
 

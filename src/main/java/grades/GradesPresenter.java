@@ -1,6 +1,6 @@
 package grades;
 
-import presenter.Presenter;
+import utils.Presenter;
 
 import java.util.List;
 
