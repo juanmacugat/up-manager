@@ -1,32 +1,38 @@
 package courses;
 
+import presenter.Presenter;
+
 import java.util.List;
 
-public class CoursesPresenter {
+public class CoursesPresenter extends Presenter<Course> {
 
     private CoursesView view;
-    private CourseService service = new CourseServiceImpl();
+    private CourseService service = new CourseService();
 
     public CoursesPresenter(CoursesView view) {
         this.view = view;
     }
 
-    public void createCourse(final Course course){
-        service.createCourse(course);
+    @Override
+    public void create(final Course course){
+        service.create(course);
         view.update();
     }
 
-    public void updateCourse(final Course course){
-        service.updateCourse(course);
+    @Override
+    public void update(final Course course){
+        service.update(course);
         view.update();
     }
 
-    public List<Course> findAllCourses() {
-        return service.findAllCourses();
+    @Override
+    public List<Course> findAll() {
+        return service.findAll();
     }
 
-    public void deleteCourse(final Course course) {
-        service.deleteCourse(course);
+    @Override
+    public void delete(final Course course) {
+        service.delete(course);
         view.update();
     }
 }

@@ -1,14 +1,36 @@
 package courses;
 
+import presenter.Service;
+
 import java.util.List;
 
-public interface CourseService {
+public class CourseService extends Service<Course> {
 
-    public List<Course> findAllCourses();
+    private CourseRepository repository = CourseRepository.getInstance();
 
-    public Course createCourse(final Course course);
+    @Override
+    public List<Course> findAll() {
+        return repository.findAll();
+    }
 
-    public void deleteCourse(final Course course);
+    @Override
+    public Course create(Course course) {
+        return repository.save(course);
+    }
 
-    public Course updateCourse(final Course course);
+    @Override
+    public void delete(Course course) {
+        repository.delete(course);
+    }
+
+    @Override
+    public Course update(Course course) {
+        repository.update(course);
+        return findById(course.getId());
+    }
+
+    @Override
+    public Course findById(final String id) {
+        return repository.findById(id);
+    }
 }

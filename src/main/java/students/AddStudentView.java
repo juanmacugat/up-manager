@@ -57,7 +57,7 @@ public class AddStudentView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (check()) {
                     Student student = new Student(txtName.getText(), txtLastname.getText(), txtEmail.getText(), LocalDate.parse(txtBirthdate.getText()), LocalDate.now());
-                    presenter.createStudent(student);
+                    presenter.create(student);
                     showDialog();
                     dispose();
                 }

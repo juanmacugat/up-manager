@@ -1,21 +1,37 @@
 package enrollments;
 
-public class EnrollmentPresenter {
+import presenter.Presenter;
+
+import java.util.List;
+
+public class EnrollmentPresenter extends Presenter<Enrollment>{
 
     private final EnrollmentView view;
-    private EnrollmentService service = new EnrollmentServiceImpl();
+    private EnrollmentService service = new EnrollmentService();
 
     public EnrollmentPresenter(final EnrollmentView enrollmentView) {
         this.view= enrollmentView;
     }
 
-    public void createEnrollment(final Enrollment enrollment){
-        service.createEnrollment(enrollment);
+    @Override
+    public void create(final Enrollment enrollment){
+        service.create(enrollment);
         view.update();
     }
 
-    public void deleteEnrollment(final Enrollment enrollment) {
-        service.deleteEnrollment(enrollment);
+    @Override
+    public void update(final Enrollment entity) {
+
+    }
+
+    @Override
+    public List<Enrollment> findAll() {
+        return service.findAll();
+    }
+
+    @Override
+    public void delete(final Enrollment enrollment) {
+        service.delete(enrollment);
         view.update();
     }
 }

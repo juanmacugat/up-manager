@@ -67,7 +67,7 @@ public class EnrollmentView extends JPanel{
 				Student student = StudentRepository.getInstance().findAll().get(studentIndex);
 				Course course = CourseRepository.getInstance().findAll().get(courseIndex);
 
-				presenter.createEnrollment(new Enrollment(course.getId(),student.getId()));
+				presenter.create(new Enrollment(course.getId(),student.getId()));
 			}
 		});
 		south.add(btnEnroll);
@@ -76,7 +76,7 @@ public class EnrollmentView extends JPanel{
 		btnUnroll.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				presenter.deleteEnrollment(getSelectedEnrollment());
+				presenter.delete(getSelectedEnrollment());
 			}
 		});
 		south.add(btnUnroll);

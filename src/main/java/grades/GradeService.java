@@ -1,16 +1,34 @@
 package grades;
 
+import presenter.Service;
+
 import java.util.List;
 
-public interface GradeService {
+public class GradeService extends Service<Grade> {
 
-    Grade createGrade(Grade grade);
+    private GradeRepository repository = GradeRepository.getInstance();
+    @Override
+    public Grade create(final Grade grade) {
+        return repository.save(grade);
+    }
 
-    Grade updateGrade(Grade grade);
+    @Override
+    public Grade update(final Grade grade) {
+        return null;
+    }
 
-    List<Grade> getAllGrades();
+    @Override
+    public List<Grade> findAll() {
+        return repository.findAll();
+    }
 
-    Grade getById(String id);
+    @Override
+    public Grade findById(final String id) {
+        return repository.findById(id);
+    }
 
-    void deleteGrade(Grade grade);
+    @Override
+    public void delete(final Grade grade) {
+        repository.delete(grade);
+    }
 }

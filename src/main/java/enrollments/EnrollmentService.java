@@ -1,14 +1,36 @@
 package enrollments;
 
+import presenter.Service;
+
 import java.util.List;
 
-public interface EnrollmentService {
+public class EnrollmentService extends Service<Enrollment>{
 
-    Enrollment createEnrollment(final Enrollment enrollment);
+    private EnrollmentRepository repository = EnrollmentRepository.getInstance();
 
-    List<Enrollment> getAllEnrollments();
+    @Override
+    public Enrollment create(final Enrollment enrollment) {
+        return repository.save(enrollment);
+    }
 
-    Enrollment getById(Integer id);
+    @Override
+    public Enrollment update(final Enrollment entity) {
+        repository.update(entity);
+        return entity;
+    }
 
-    void deleteEnrollment(Enrollment enrollment);
+    @Override
+    public List<Enrollment> findAll() {
+        return repository.findAll();
+    }
+
+    @Override
+    public Enrollment findById(final String id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public void delete(final Enrollment enrollment) {
+        repository.delete(enrollment);
+    }
 }

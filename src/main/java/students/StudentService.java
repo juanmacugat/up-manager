@@ -1,15 +1,36 @@
 package students;
 
+import presenter.Service;
+
 import java.util.List;
 
-public interface StudentService {
-    Student createStudent(Student student);
+public class StudentService extends Service<Student> {
 
-    Student updateStudent(Student student);
+    private StudentRepository studentRepository = StudentRepository.getInstance();
 
-    List<Student> getAllStudents();
+    @Override
+    public Student create(final Student student) {
+        return studentRepository.save(student);
+    }
 
-    Student getById(String id);
+    @Override
+    public Student update(final Student student) {
+        studentRepository.update(student);
+        return findById(student.getId());
+    }
 
-    void deleteStudent(Student student);
+    @Override
+    public List<Student> findAll() {
+        return studentRepository.findAll();
+    }
+
+    @Override
+    public Student findById(final String id) {
+        return studentRepository.findById(id);
+    }
+
+    @Override
+    public void delete(final Student student) {
+        studentRepository.delete(student);
+    }
 }

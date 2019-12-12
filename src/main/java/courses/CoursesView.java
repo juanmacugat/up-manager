@@ -1,8 +1,6 @@
 package courses;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +40,7 @@ public class CoursesView extends JPanel{
 		btnDelete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				presenter.deleteCourse(getSelectedCourse());
+				presenter.delete(getSelectedCourse());
 				JOptionPane.showMessageDialog(null,
 						"Se elimino el curso correctamente",
 						"Information", JOptionPane.INFORMATION_MESSAGE);

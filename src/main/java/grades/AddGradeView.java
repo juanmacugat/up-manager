@@ -40,7 +40,7 @@ public class AddGradeView extends JFrame{
                 Grade grade = new Grade(((Student)cmbStudents.getSelectedItem()).getId(),
                         ((Course) cmbSubjects.getSelectedItem()).getId(),
                         Integer.parseInt((String)cmbGrades.getSelectedItem()));
-                presenter.createGrade(grade);
+                presenter.create(grade);
                 JOptionPane.showMessageDialog(null,
                         "Se califico correctamente",
                         "Information", JOptionPane.INFORMATION_MESSAGE);

@@ -40,7 +40,7 @@ public class StudentsView extends JPanel {
 		btnDelete.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				presenter.deleteStudent(getSelectedStudent());
+				presenter.delete(getSelectedStudent());
 				JOptionPane.showMessageDialog(null,
 						"Se elimino el curso correctamente",
 						"Information", JOptionPane.INFORMATION_MESSAGE);

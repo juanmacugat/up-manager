@@ -62,7 +62,7 @@ public class EditStudentView extends JFrame {
                     student.setSurname(txtLastname.getText());
                     student.setEmail(txtEmail.getText());
                     student.setBirthdate(LocalDate.parse(txtBirthdate.getText()));
-                    presenter.updateStudent(student);
+                    presenter.update(student);
                     JOptionPane.showMessageDialog(null,
                             "Se actualizo correctamente el alumno",
                             "Information", JOptionPane.INFORMATION_MESSAGE);

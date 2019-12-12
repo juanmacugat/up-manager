@@ -8,7 +8,7 @@ import students.Student;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class EnrollmentRepository implements RelationalRepository<Enrollment, Integer> {
+public class EnrollmentRepository implements RelationalRepository<Enrollment, String> {
 
     private static EnrollmentRepository instance = new EnrollmentRepository();
 
