@@ -1,11 +1,12 @@
 package students;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Student {
 
-    private String id = UUID.randomUUID().toString();
+    private String id;
     private String name;
     private String surname;
     private String email;
@@ -13,6 +14,7 @@ public class Student {
     private LocalDate creationDate;
 
     public Student(String name, String surname, String email, LocalDate birthdate, LocalDate creationDate){
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -76,5 +78,18 @@ public class Student {
     @Override
     public String toString() {
         return name + " " + surname;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(id, student.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

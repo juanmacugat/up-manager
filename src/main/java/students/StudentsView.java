@@ -5,14 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class NewStudentsView  extends JPanel {
+public class StudentsView extends JPanel {
 
 	private final StudentTableModel model;
 	private JTextField txtSearch;
 	private JTable tblStudents;
 	private StudentsPresenter presenter;
 
-	public NewStudentsView() {
+	public StudentsView() {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel south = new JPanel();

@@ -33,7 +33,7 @@ public class AddCourseView extends JFrame {
         btnConfirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                Course course = new Course(txtName.getText(), txtTeacher.getText(), cmbMajor.getSelectedItem().toString(), cmbCondition.getSelectedIndex());
+                Course course = new Course(txtName.getText(), txtTeacher.getText(), cmbMajor.getSelectedItem().toString(), (Integer) cmbCondition.getSelectedItem());
                 presenter.createCourse(course);
                 JOptionPane.showMessageDialog(null,
                         "Se dio de alta correctamente la materia",
@@ -86,7 +86,7 @@ public class AddCourseView extends JFrame {
         
         cmbCondition = new JComboBox();
         cmbCondition.setModel(new DefaultComboBoxModel(new Integer[] {1,2,3,4,5,6,7,8,9,10}));
-        cmbCondition.setSelectedIndex(5);
+        cmbCondition.setSelectedIndex(6);
         center.add(cmbCondition);
         initialize();
     }

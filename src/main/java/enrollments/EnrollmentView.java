@@ -11,11 +11,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class EnrollmentView extends JPanel {
+public class EnrollmentView extends JPanel{
+
 	private JTextField txtSearch;
 	private EnrollmentPresenter presenter;
 	private JTable tblEnrollments;
 	private EnrollmentTableModel model;
+	private JComboBox cmbSubjects;
+	private JComboBox cmbStudents;
 
 	public EnrollmentView() {
 		initialize();
@@ -46,11 +49,11 @@ public class EnrollmentView extends JPanel {
 		add(south, BorderLayout.SOUTH);
 
 		List<Student> students = StudentRepository.getInstance().findAll();
-		JComboBox cmbStudents = new JComboBox(students.toArray());
+		cmbStudents = new JComboBox(students.toArray());
 		south.add(cmbStudents);
 
 		List<Course> courses = CourseRepository.getInstance().findAll();
-		JComboBox cmbSubjects = new JComboBox(courses.toArray());
+		cmbSubjects = new JComboBox(courses.toArray());
 		south.add(cmbSubjects);
 
 		JButton btnEnroll = new JButton("inscribir");
@@ -90,5 +93,9 @@ public class EnrollmentView extends JPanel {
 
 	public void update() {
 		model.fireTableDataChanged();
+		cmbSubjects.setModel(new DefaultComboBoxModel(CourseRepository.getInstance().findAll().toArray()));
+		cmbStudents.setModel(new DefaultComboBoxModel(StudentRepository.getInstance().findAll().toArray()));
 	}
+
+
 }

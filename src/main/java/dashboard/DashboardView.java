@@ -6,10 +6,12 @@ import enrollments.EnrollmentPresenter;
 import enrollments.EnrollmentView;
 import grades.GradesPresenter;
 import grades.GradesView;
-import students.NewStudentsView;
+import students.StudentsView;
 import students.StudentsPresenter;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class DashboardView extends JFrame {
 
@@ -25,7 +27,7 @@ public class DashboardView extends JFrame {
         GradesPresenter gradesPresenter = new GradesPresenter(gradesView);
         gradesView.setPresenter(gradesPresenter);
 
-        NewStudentsView studentsView1 = new NewStudentsView();
+        StudentsView studentsView1 = new StudentsView();
         StudentsPresenter studentsPresenter1 = new StudentsPresenter(studentsView1);
         studentsView1.setPresenter(studentsPresenter1);
 
@@ -37,8 +39,15 @@ public class DashboardView extends JFrame {
         JTabbedPane tabs = new JTabbedPane();
         tabs.addTab("Materias", coursesView);
         tabs.addTab("Alumnos", studentsView1);
+        tabs.addTab("Inscripciones", enrollmentView);
         tabs.addTab("Notas", gradesView);
-        tabs.add("Inscripciones", enrollmentView);
+
+        tabs.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(final ChangeEvent e) {
+                enrollmentView.update();
+            }
+        });
 
         setTitle(TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

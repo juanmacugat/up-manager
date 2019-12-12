@@ -33,9 +33,9 @@ public class GradeRepositoryTest {
 
         Grade grade = new Grade();
         grade.setId(UUID.randomUUID().toString());
-        grade.setStudent(student);
+//        grade.setStudent(student);
         grade.setGrade(10);
-        grade.setCourse(course);
+//        grade.setCourse(course);
 
         Grade gradeSaved = GradeRepository.getInstance().save(grade);
 

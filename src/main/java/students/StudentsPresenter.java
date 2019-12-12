@@ -2,10 +2,10 @@ package students;
 
 public class StudentsPresenter {
 
-    private final NewStudentsView view;
+    private final StudentsView view;
     private final StudentService service = new StudentServiceImpl();
 
-    public StudentsPresenter(final NewStudentsView view){
+    public StudentsPresenter(final StudentsView view){
         this.view = view;
     }
 

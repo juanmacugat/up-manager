@@ -9,7 +9,7 @@ public class StudentTableModel extends AbstractTableModel {
     String headers[] = new String[]{"ID", "NOMBRE", "APELLIDO", "EMAIL", "FECHA DE NACIMIENTO", "FECHA DE CREACION"};
 
 
-@Override
+    @Override
     public int getRowCount() {
         return repository.findAll().size();
     }
