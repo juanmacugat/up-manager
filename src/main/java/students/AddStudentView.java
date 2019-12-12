@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class AddStudentView extends JFrame {
@@ -13,7 +14,7 @@ public class AddStudentView extends JFrame {
 
     private JPanel jPanelCenter, jPanelSouth;
     private JButton addButton, exitButton;
-    private JTextField name, lastName, department, email, sex;
+    private JTextField name, lastName, birthdate, email, creationDate;
 
 
     public AddStudentView(final StudentsPresenter presenter){
@@ -31,12 +32,9 @@ public class AddStudentView extends JFrame {
         jPanelCenter.add(new JLabel("apellido"));
         lastName = new JTextField();
         jPanelCenter.add(lastName);
-        jPanelCenter.add(new JLabel("sexo"));
-        sex = new JTextField();
-        jPanelCenter.add(sex);
-        jPanelCenter.add(new JLabel("ciudad"));
-        department = new JTextField();
-        jPanelCenter.add(department);
+        jPanelCenter.add(new JLabel("fecha de nacimiento"));
+        birthdate = new JTextField();
+        jPanelCenter.add(birthdate);
         jPanelCenter.add(new JLabel("email"));
         email = new JTextField();
         jPanelCenter.add(email);
@@ -51,7 +49,7 @@ public class AddStudentView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (check()) {
-                    Student student = new Student(name.getText(), lastName.getText(), email.getText(), new Date(), new Date());
+                    Student student = new Student(name.getText(), lastName.getText(), email.getText(), LocalDate.parse(birthdate.getText()), LocalDate.now());
                     presenter.createStudent(student);
                     showDialog();
                     dispose();
@@ -83,17 +81,9 @@ public class AddStudentView extends JFrame {
                 "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void clear() {
-        name.setText("");
-        lastName.setText("");
-        sex.setText("");
-        email.setText("");
-        department.setText("");
-    }
-
     private boolean check() {
         boolean result = false;
-        if ("".equals(name.getText())  || "".equals(department.getText()) || "".equals(sex.getText()) || "".equals(email.getText())) {
+        if ("".equals(name.getText())) {
             return result;
         } else {
             result = true;

@@ -12,7 +12,7 @@ public class CoursesPresenter {
     }
 
     public void createCourse(final Course course){
-        Course saved = service.createCourse(course);
+        service.createCourse(course);
         view.update();
     }
 

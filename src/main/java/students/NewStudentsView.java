@@ -79,4 +79,8 @@ public class NewStudentsView  extends JPanel {
 	public void setPresenter(final StudentsPresenter presenter) {
 		this.presenter = presenter;
 	}
+
+	public void update() {
+		model.fireTableDataChanged();
+	}
 }

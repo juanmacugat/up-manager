@@ -34,9 +34,17 @@ public class StudentTableModel extends AbstractTableModel {
                 return student.getSurname();
             case 3:
                 return student.getEmail();
+            case 4:
+                return student.getBirthdate();
+            case 5:
+                return student.getCreationDate();
             default:
                 return null;
         }
+    }
+
+    public String getColumnName(int col) {
+        return headers[col];
     }
 
     public Student elementAt(final int row) {

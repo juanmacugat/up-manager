@@ -1,6 +1,6 @@
 package students;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Student {
@@ -9,15 +9,15 @@ public class Student {
     private String name;
     private String surname;
     private String email;
-    private Date birthday;
-    private Date creation_date;
+    private LocalDate birthdate;
+    private LocalDate creationDate;
 
-    public Student(String name, String surname, String email, Date birthday, Date creationDate){
+    public Student(String name, String surname, String email, LocalDate birthdate, LocalDate creationDate){
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.birthday = birthday;
-        this.creation_date = creationDate;
+        this.birthdate = birthdate;
+        this.creationDate = creationDate;
     }
 
     public Student() {
@@ -40,12 +40,9 @@ public class Student {
         this.email = email;
     }
 
-    public void setBirthday(final Date birthday) {
-        this.birthday = birthday;
-    }
 
-    public void setCreation_date(final Date creation) {
-        this.creation_date = creation;
+    public void setCreationDate(final LocalDate date) {
+        this.creationDate = date;
     }
 
     public void setId(final String id) {
@@ -62,6 +59,18 @@ public class Student {
 
     public String getEmail() {
         return email;
+    }
+
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(final LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
     }
 
     @Override

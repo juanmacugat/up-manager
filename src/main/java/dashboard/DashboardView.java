@@ -16,9 +16,9 @@ public class DashboardView extends JFrame {
 
     public DashboardView(){
 
-        StudentsView studentsView = new StudentsView();
-        StudentsPresenter studentsPresenter = new StudentsPresenter(studentsView);
-        studentsView.setPresenter(studentsPresenter);
+//        StudentsView studentsView = new StudentsView();
+//        StudentsPresenter studentsPresenter = new StudentsPresenter(studentsView);
+//        studentsView.setPresenter(studentsPresenter);
 
         CoursesView coursesView = new CoursesView();
         CoursesPresenter coursesPresenter = new CoursesPresenter(coursesView);
@@ -29,12 +29,12 @@ public class DashboardView extends JFrame {
         gradesView.setPresenter(gradesPresenter);
 
         NewStudentsView studentsView1 = new NewStudentsView();
-        StudentsPresenter studentsPresenter1 = new StudentsPresenter(studentsView);
+        StudentsPresenter studentsPresenter1 = new StudentsPresenter(studentsView1);
         studentsView1.setPresenter(studentsPresenter1);
 
         JTabbedPane tabs = new JTabbedPane();
         tabs.addTab("Materia", coursesView);
-        tabs.addTab("Alumnos", studentsView);
+        tabs.addTab("Alumnos", studentsView1);
         tabs.addTab("Notas", gradesView);
 
         setTitle(TITLE);
