@@ -2,6 +2,8 @@ package dashboard;
 
 import courses.CoursesPresenter;
 import courses.CoursesView;
+import enrollments.EnrollmentPresenter;
+import enrollments.EnrollmentView;
 import grades.GradesPresenter;
 import grades.GradesView;
 import students.NewStudentsView;
@@ -27,10 +29,16 @@ public class DashboardView extends JFrame {
         StudentsPresenter studentsPresenter1 = new StudentsPresenter(studentsView1);
         studentsView1.setPresenter(studentsPresenter1);
 
+        EnrollmentView enrollmentView = new EnrollmentView();
+        EnrollmentPresenter enrollmentPresenter = new EnrollmentPresenter(enrollmentView);
+        enrollmentView.setPresenter(enrollmentPresenter);
+        enrollmentView.initialize();
+
         JTabbedPane tabs = new JTabbedPane();
         tabs.addTab("Materias", coursesView);
         tabs.addTab("Alumnos", studentsView1);
         tabs.addTab("Notas", gradesView);
+        tabs.add("Inscripciones", enrollmentView);
 
         setTitle(TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,8 +1,5 @@
 package students;
 
-import students.Student;
-import students.StudentRepository;
-
 import javax.swing.table.AbstractTableModel;
 
 public class StudentTableModel extends AbstractTableModel {

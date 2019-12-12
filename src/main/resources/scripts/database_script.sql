@@ -25,6 +25,13 @@ CREATE TABLE IF NOT EXISTS Course(
   pass_condition DECIMAL(19,2) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS Enrollment(
+    id varchar(255) NOT NULL,
+    course_id varchar(255) NOT NULL,
+    student_id varchar(255) NOT NULL,
+    PRIMARY KEY (id)
+)
+
 CREATE TABLE IF NOT EXISTS Grade(
   id VARCHAR(255) NOT NULL,
   student_id VARCHAR(255) NOT NULL,
