@@ -1,11 +1,10 @@
 package dashboard;
 
+import courses.CoursesPresenter;
 import courses.CoursesView;
 import grades.GradesPresenter;
 import grades.GradesView;
 import students.NewStudentsView;
-import students.StudentsView;
-import courses.CoursesPresenter;
 import students.StudentsPresenter;
 
 import javax.swing.*;
@@ -15,10 +14,6 @@ public class DashboardView extends JFrame {
     public static final String TITLE = "Universidad de Palermo - Sistema de Gestion de Alumnos";
 
     public DashboardView(){
-
-//        StudentsView studentsView = new StudentsView();
-//        StudentsPresenter studentsPresenter = new StudentsPresenter(studentsView);
-//        studentsView.setPresenter(studentsPresenter);
 
         CoursesView coursesView = new CoursesView();
         CoursesPresenter coursesPresenter = new CoursesPresenter(coursesView);
@@ -33,7 +28,7 @@ public class DashboardView extends JFrame {
         studentsView1.setPresenter(studentsPresenter1);
 
         JTabbedPane tabs = new JTabbedPane();
-        tabs.addTab("Materia", coursesView);
+        tabs.addTab("Materias", coursesView);
         tabs.addTab("Alumnos", studentsView1);
         tabs.addTab("Notas", gradesView);
 
