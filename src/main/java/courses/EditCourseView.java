@@ -49,9 +49,7 @@ public class EditCourseView extends JFrame {
                 course.setMajor(cmbMajor.getSelectedItem().toString());
                 course.setPass_condition((Integer)cmbCondition.getSelectedItem());
                 presenter.update(course);
-                JOptionPane.showMessageDialog(null,
-                        "Se actualizo correctamente la materia",
-                        "Information", JOptionPane.INFORMATION_MESSAGE);
+                showDialog();
                 dispose();
             }
         });
@@ -106,7 +104,7 @@ public class EditCourseView extends JFrame {
 
     private void showDialog() {
         JOptionPane.showMessageDialog(null,
-                "Se dio de alta correctamente la materia",
+                "Se actualizo correctamente la materia",
                 "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 

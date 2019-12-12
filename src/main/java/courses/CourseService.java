@@ -14,17 +14,17 @@ public class CourseService extends Service<Course> {
     }
 
     @Override
-    public Course create(Course course) {
+    public Course create(final Course course) {
         return repository.save(course);
     }
 
     @Override
-    public void delete(Course course) {
+    public void delete(final Course course) {
         repository.delete(course);
     }
 
     @Override
-    public Course update(Course course) {
+    public Course update(final Course course) {
         repository.update(course);
         return findById(course.getId());
     }

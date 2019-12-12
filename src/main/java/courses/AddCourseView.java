@@ -35,9 +35,7 @@ public class AddCourseView extends JFrame {
             public void actionPerformed(final ActionEvent e) {
                 Course course = new Course(txtName.getText(), txtTeacher.getText(), cmbMajor.getSelectedItem().toString(), (Integer) cmbCondition.getSelectedItem());
                 presenter.create(course);
-                JOptionPane.showMessageDialog(null,
-                        "Se dio de alta correctamente la materia",
-                        "Information", JOptionPane.INFORMATION_MESSAGE);
+                showDialog();
                 dispose();
             }
         });
