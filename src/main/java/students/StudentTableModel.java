@@ -1,4 +1,4 @@
-package sample;
+package students;
 
 import students.Student;
 import students.StudentRepository;

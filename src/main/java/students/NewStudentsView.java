@@ -1,7 +1,5 @@
 package students;
 
-import sample.StudentTableModel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

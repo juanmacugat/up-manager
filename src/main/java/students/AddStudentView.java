@@ -5,16 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class AddStudentView extends JFrame {
 
     private static final String TITLE = "Nuevo Alumno";
     private final StudentsPresenter presenter;
 
-    private JPanel jPanelCenter, jPanelSouth;
+    private JPanel center, south;
     private JButton addButton, exitButton;
-    private JTextField name, lastName, birthdate, email, creationDate;
+    private JTextField txtName, txtLastname, txtBirthdate, txtEmail;
 
 
     public AddStudentView(final StudentsPresenter presenter){
@@ -24,39 +23,47 @@ public class AddStudentView extends JFrame {
 
     private void initialize() {
         setTitle(TITLE);
-        jPanelCenter = new JPanel();
-        jPanelCenter.setLayout(new GridLayout(6, 2));
-        jPanelCenter.add(new JLabel("nombre"));
-        name = new JTextField();
-        jPanelCenter.add(name);
-        jPanelCenter.add(new JLabel("apellido"));
-        lastName = new JTextField();
-        jPanelCenter.add(lastName);
-        jPanelCenter.add(new JLabel("fecha de nacimiento"));
-        birthdate = new JTextField();
-        jPanelCenter.add(birthdate);
-        jPanelCenter.add(new JLabel("email"));
-        email = new JTextField();
-        jPanelCenter.add(email);
-        jPanelCenter.add(new JSeparator(SwingConstants.HORIZONTAL));
-        jPanelCenter.add(new JSeparator(SwingConstants.HORIZONTAL));
+        center = new JPanel();
+        center.setLayout(new GridLayout(6, 2));
+        JLabel lblName = new JLabel("nombre");
+        lblName.setHorizontalAlignment(SwingConstants.CENTER);
+        center.add(lblName);
+        txtName = new JTextField();
+        center.add(txtName);
+        JLabel lblLastname = new JLabel("apellido");
+        lblLastname.setHorizontalAlignment(SwingConstants.CENTER);
+        center.add(lblLastname);
+        txtLastname = new JTextField();
+        center.add(txtLastname);
+        JLabel lblBirthdate = new JLabel("fecha de nacimiento");
+        lblBirthdate.setHorizontalAlignment(SwingConstants.CENTER);
+        center.add(lblBirthdate);
+        txtBirthdate = new JTextField();
+        center.add(txtBirthdate);
+        JLabel lblEmail = new JLabel("email");
+        lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
+        center.add(lblEmail);
+        txtEmail = new JTextField();
+        center.add(txtEmail);
+        center.add(new JSeparator(SwingConstants.HORIZONTAL));
+        center.add(new JSeparator(SwingConstants.HORIZONTAL));
 
         // south panel
-        jPanelSouth = new JPanel();
-        jPanelSouth.setLayout(new GridLayout(1, 2));
+        south = new JPanel();
+        south.setLayout(new GridLayout(1, 2));
         addButton = new JButton("agregar");
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (check()) {
-                    Student student = new Student(name.getText(), lastName.getText(), email.getText(), LocalDate.parse(birthdate.getText()), LocalDate.now());
+                    Student student = new Student(txtName.getText(), txtLastname.getText(), txtEmail.getText(), LocalDate.parse(txtBirthdate.getText()), LocalDate.now());
                     presenter.createStudent(student);
                     showDialog();
                     dispose();
                 }
             }
         });
-        jPanelSouth.add(addButton);
+        south.add(addButton);
         exitButton = new JButton("salir");
         exitButton.addActionListener(new ActionListener() {
             @Override
@@ -64,10 +71,10 @@ public class AddStudentView extends JFrame {
                 dispose();
             }
         });
-        jPanelSouth.add(exitButton);
+        south.add(exitButton);
 
-        this.add(jPanelCenter, BorderLayout.CENTER);
-        this.add(jPanelSouth, BorderLayout.SOUTH);
+        getContentPane().add(center, BorderLayout.CENTER);
+        getContentPane().add(south, BorderLayout.SOUTH);
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setBounds(470, 200, 400, 270);
@@ -83,7 +90,7 @@ public class AddStudentView extends JFrame {
 
     private boolean check() {
         boolean result = false;
-        if ("".equals(name.getText())) {
+        if ("".equals(txtName.getText())) {
             return result;
         } else {
             result = true;
